@@ -14,5 +14,32 @@ pytest --cache-show - to see the cache.
 
 python3 -m pytest -s ./tests/test_module01.py -k "test_a1 or test_a3" , to run two specific tests
 
+this if for tagging the tests
+@pytest.mark.marked
+def test_a3():
+    assert 10-5==5
 
+To execute the specific tagged test use:
+python3 -m pytest -s ./tests/test_module01.py -m marked
 
+conftest.py - special file from where config can be set
+pytest_addoption - function to add options
+pytest_config - to get the config
+
+python3 -m pytest -s ./tests/test_module01.py -m "marked and not str"
+
+module level marking :
+pytestmark = [ pytest.mark.marked, pytest.mark.str ]
+
+xfail = expected failure
+
+You use it when you know a test will fail, e.g., because a bug hasn’t been fixed yet.
+
+Pytest will not mark the test as failed, it will report it as "expected failure."
+
+This is useful in CI/CD pipelines so your suite doesn’t fail for known issues.
+When you run this test:
+
+If the assertion fails → pytest reports xfail (expected) ✅
+
+If the assertion passes → pytest reports xpass (unexpected pass) ⚠️
