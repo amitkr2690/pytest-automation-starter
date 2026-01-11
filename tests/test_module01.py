@@ -46,3 +46,11 @@ def test_a7():
 
 def test_a8():
     assert 10-5==5
+
+@pytest.mark.parametrize("a",[1,2,3,4])
+def test_param01(a):
+    assert a<3
+
+@pytest.mark.parametrize("a,b",[(1,4),(2,1),(3,7),(4,5)])
+def test_param02(a,b):
+    assert a<b
