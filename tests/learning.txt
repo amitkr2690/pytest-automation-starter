@@ -3,3 +3,16 @@ By default pytest captures standard-output while running tests. Only if a test f
 Meaning, if the test is a pass, the print stmts are not logged to console.
 
 We can use -s option, toprint to stdout or to console in all cases.
+
+pytest options:
+
+--lf - last failed , run only last failed tests.
+--ff - failed first, run failed tests first.
+-v - for verbose output.
+pytest --cache-show - to see the cache.
+--stepwise - the test will run untill the first failure and then it stops.
+
+python3 -m pytest -s ./tests/test_module01.py -k "test_a1 or test_a3" , to run two specific tests
+
+
+
